@@ -22,8 +22,9 @@ import {
     TextLinkContent,
 }from './../components/styles';
 
-const Signup = () => {
+const Signup = (navigation) => {
     const [hidePassword, setHidePassword] = useState(true);
+    
     return(
         <StyledContainer>
             <StatusBar style="dark"/>
@@ -62,7 +63,7 @@ const Signup = () => {
                     />
 
                 
-                    <StyledButton onPress={handleSubmit}>
+                    <StyledButton>
                         <ButtonText>Signup</ButtonText>
                     </StyledButton>
                     <Or>Or</Or>
@@ -79,7 +80,7 @@ const Signup = () => {
                     </IconContainer>
                     <ExtraView>
                         <ExtraText>Already Have An Account?</ExtraText>
-                        <TextLink>
+                        <TextLink onPress = {() => navigation.navigate("Login")}>
                             <TextLinkContent>Login</TextLinkContent>
                         </TextLink>
                     </ExtraView>

@@ -15,7 +15,7 @@ const { white, purple, black, gray} = Colors;
 
 export const StyledContainer = styled.View`
     flex: 1;
-    margin-top: ${StatusBarHeight+29};
+    margin-top: ${StatusBarHeight}px;
     background-color: ${white};
 `;
 
@@ -29,6 +29,7 @@ export const PageLogo = styled.Image`
     width: 117px;
     height: 108px;
     margin-bottom: 55.5px;
+    margin-top: 30px;
 `;
 
 export const StyledFormArea = styled.View`

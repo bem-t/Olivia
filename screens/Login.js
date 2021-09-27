@@ -3,6 +3,7 @@ import { StatusBar } from "expo-status-bar";
 import { Formik } from "formik";
 import {Ionicons} from '@expo/vector-icons';
 import { View } from "react-native";
+import RootStack from "../navigators/RootStack";
 import {
     StyledContainer,
     InnerContainer,
@@ -24,7 +25,8 @@ import {
     TextLinkContent,
 }from './../components/styles';
 
-const Login = () => {
+const Login = ({navigation}) => {
+    
     const [hidePassword, setHidePassword] = useState(true);
     return(
         <StyledContainer>
@@ -34,7 +36,8 @@ const Login = () => {
                 <Formik
                     initialValues={{email: '', password: ''}}
                     onSubmit={(values) => {
-                        console.log(values)
+                        console.log(values);
+                        navigation.navigate("Welcome");
                     }}
                 >{({handleChange, handleBlur, handleSubmit, values})=> (<StyledFormArea>
                     <MyTextInput 
@@ -75,14 +78,14 @@ const Login = () => {
                     </IconContainer>
                     <ExtraView>
                         <ExtraText>Would You Like To Join Us?</ExtraText>
-                        <TextLink>
+                        <TextLink onPress = {() => navigation.navigate("Signup")}>
                             <TextLinkContent>Signup</TextLinkContent>
                         </TextLink>
                     </ExtraView>
                 </StyledFormArea>)}
                 </Formik>
             </InnerContainer>
-        </StyledContainer>
+        </StyledContainer>   
     );
 };
 
